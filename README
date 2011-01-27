@@ -1,0 +1,16 @@
+config.sh:          common configuration
+
+mkpackage.sh:       make a full-system tarball, store in `./backup' directory
+
+deploy.sh           main entry, deploy the tarball to a specific disk
+mkpart.sh           partition the disk, using `fdisk'
+mkfs.sh             format the partitions
+
+deploy2.sh:         another main entry, which calls `filesystem.py' instead of `mkpart.sh' and `mkfs.sh'
+filesystem.py:      my first python script, partition the disk with `sfdisk' and format the partitions
+
+deployfile.sh:      mount the partitions and extract the tarball
+installgrub.sh:     install the bootloader to MBR
+clear.sh:           clear mountpoints
+
+README              this file
