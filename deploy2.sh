@@ -22,6 +22,16 @@ fi
 
 . config.sh
 
+deployroot=/tmp/deploy-${random}
+
+if [ "${tarball+set}" != set ]; then
+  if [ ! -e ${current} -o ! -f ${current} -o ! -s ${current} ]; then
+    echo ${current} shoule exist and be a regular file.
+    exit 1
+  fi
+  tarball=${backupdir}/`cat ${current}`
+fi
+
 echo Making partitions on ${device}...
 python ${topdir}/filesystem.py ${device}
 

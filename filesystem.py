@@ -86,6 +86,10 @@ EOF''' % (boot_unit, root_unit, var_unit, swap_unit)
   if subprocess.call(command, shell = True) != 0:
     print >> sys.stderr, "Cannot format " + device + "3"
     return False
+  command = "mkswap " + device + "5"
+  if subprocess.call(command, shell = True) != 0:
+    print >> sys.stderr, "Cannot format " + device + "5"
+    return False
   command = "mkfs.ext3 -L /home " + device + "6"
   if subprocess.call(command, shell = True) != 0:
     print >> sys.stderr, "Cannot format " + device + "6"
