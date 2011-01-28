@@ -33,7 +33,7 @@ if [ "${tarball+set}" != set ]; then
 fi
 
 echo Making partitions on ${device}...
-python ${topdir}/filesystem.py ${device}
+python ${topdir}/filesystem.py ${device} ${boot_size} ${root_size} ${var_size} ${swap_size}
 
 echo Deploying files...
 ${topdir}/deployfile.sh ${device} ${deployroot} ${tarball}

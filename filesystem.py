@@ -98,11 +98,12 @@ EOF''' % (boot_unit, root_unit, var_unit, swap_unit)
   return True
 
 if __name__ == "__main__":
-  if len(sys.argv) != 2:
-    print >> sys.stderr, 'Usage: ', sys.argv[0], ' /dev/sdX'
+  if len(sys.argv) != 6:
+    print >> sys.stderr, 'Usage: ', sys.argv[0], ' /dev/sdX boot_size root_size var_size swap_size'
     sys.exit(1)
   
-  if make_partition(sys.argv[1]) == False:
+  if make_partition(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]),
+      int(sys.argv[4]), int(sys.argv[5])) == False:
     print >> sys.stderr, "Cannot make partitions on " + sys.argv[1]
     sys.exit(1)
   
